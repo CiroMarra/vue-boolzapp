@@ -1,0 +1,16 @@
+body{
+    height: 100vh;
+    background: linear-gradient(to bottom,
+    #1B9688 20%,
+    #DBDBD2 20%,
+    #DBDBD2 100%);
+}
+
+.container {
+    background-color: white;
+    width: 96%;
+    height: 96vh;
+    text-align: center;
+    margin: auto;
+
+}
