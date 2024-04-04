@@ -11,87 +11,54 @@
 <body>
     <div id="app">
        <div class="mega-container">
-        <div class="container-app">
-            <div class="container-left col-4">
-                <div class="col-container-12">
-                    <div class="mySelf">
-                        <img src="img/avatar_io.jpg" alt="" class="img">
-                        <span class="ms-span">Sofia</span>
-                    </div>
-                    
-                </div>
-                <div class="notification">
-                    <div class="rounded-box">
-                         <i class="fa-solid fa-bell-slash img-postion"></i>          
-                    </div>
-                    <div class="text">
-                     <span class="ms-span">Ricevi notifiche di nuovi messaggi</span>  
-                     <div class="ms-notifiche">Attiva notifiche messaggi</div>
-                    </div>
-                    
-                 </div>
-                <div class="left-bar">
-                    <div class="contact-list">
-                        <div class="single-contact">
-                            <img src="img/avatar_1.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Michele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_2.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Fabio</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
-                        </div>
-                        <div class="single-contact">
-                            <img src="img/avatar_3.jpg" alt="" class="img-select">  
-                           <span class="ms-span">Samuele</span>
+            <div class="container-app">
+                <div class="container-left col-4">
+                    <div class="col-container-12">
+                        <div class="mySelf">
+                            <img src="img/avatar_io.jpg" alt="" class="img">
+                            <span class="ms-span">Sofia</span>
                         </div>
                         
                     </div>
-                 
-   
-                </div>
-                
-            </div>
-            <div class="container-right col-8">
-                <div class="col-container-12">
-                    <div class="name">
-                     <img src="img/avatar_1.jpg" alt="" class="img-select">  
-                        <span class="ms-span">Michele</span>
+                    <div class="notification">
+                        <div class="rounded-box">
+                            <i class="fa-solid fa-bell-slash img-postion"></i>          
+                        </div>
+                        <div class="text">
+                        <span class="ms-span">Ricevi notifiche di nuovi messaggi</span>  
+                        <div class="ms-notifiche">Attiva notifiche messaggi</div>
+                        </div>
+                        
                     </div>
+                    <div class="left-bar">
+                        <div class="contact-list">
+                            <div class="single-contact" v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name" class="img-select">  
+                                <span class="ms-span">{{ contact.name }}</span>
+                            </div>
+                        </div>  
+                    
+    
+                    </div>
+                    
                 </div>
-                <div class="chat">
-                 oluptatibus rem veritatis maiores odit commodi obcaecati, recusandae repudiandae.
-
-                </div>
-                <div class="col-container-12 bottom-right">
-                
+                <div class="container-right col-8">
+                    <div class="col-container-12">
+                        <div class="mySelf" v-if="selectedContactIndex !== null"> 
+                            <img :src="'img/avatar_' + (selectedContactIndex + 1) + '.jpg'" alt="" class="img-select">  
+                            <span class="ms-span">{{ contacts[selectedContactIndex].name }}</span>
+                        </div>
+                        <div class="chat" v-if="selectedContactIndex !== null">
+                            <div v-for="(message, index) in contacts[selectedContactIndex].messages" :key="index" class="message" :class="message.status">
+                                {{ message.message }}
+                            </div>
+                        </div>
+                        <div class="col-container-12 bottom-right">
+                        
+                        </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
        </div> 

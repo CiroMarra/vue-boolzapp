@@ -80,11 +80,14 @@
     background-image: url(../img/mine.jpg);
     height: 77vh;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .mySelf {
     display: flex;
     align-items: center;
+    height: 9vh;
 
 }
 
@@ -99,6 +102,7 @@
 .name {
     display: flex;
     align-items: center;
+    height: 60px;
 }
 
 .img-select {
@@ -112,10 +116,11 @@
 
 .notification {
     background-color: #8edafc;
-    padding: 12px 12px;
     display: flex;
     align-items: center;
     position: relative;
+    height: 11vh;
+    padding: 12px 12px;
     
 }
 
@@ -160,3 +165,22 @@
     bottom: 0;
 }
 
+.sent {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+    margin-bottom: 5px;
+    padding: 8px 8px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+
+.received {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+    margin-bottom: 5px;
+    padding: 8px 8px;
+    border-radius: 10px;
+    margin-left: 20px;
+}

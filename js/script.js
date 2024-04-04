@@ -94,8 +94,15 @@ createApp({
                 ],
               },
             ],
+            selectedContactIndex: 0
         };
     },
     methods: {
+      selectContact(index) {
+        this.selectedContactIndex = index;
+        console.log(this.selectedContactIndex);
     }
-}).mount('app');
+    }
+}).mount('#app');
+
+
