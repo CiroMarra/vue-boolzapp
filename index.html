@@ -54,6 +54,10 @@
                             </div>
                         </div>
                         <div class="col-container-12 bottom-right">
+                          
+                             <input type="text" v-model="userInput" @keypress.enter="sendMessage" placeholder="Scrivi un messaggio...">
+                             
+                             <button @click="sendMessage">Invia</button>
                         
                         </div>
                 </div>
