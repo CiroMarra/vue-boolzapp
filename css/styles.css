@@ -159,11 +159,20 @@
     overflow-y: auto
 }
 
+.endbar {
+    display: flex;
+}
+
 /* right */
 .bottom-right {
     position: absolute;
     bottom: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
+
+
 
 .sent {
     background-color: #DCF8C6;
@@ -183,4 +192,5 @@
     padding: 8px 8px;
     border-radius: 10px;
     margin-left: 20px;
+    margin-top: 10px;
 }

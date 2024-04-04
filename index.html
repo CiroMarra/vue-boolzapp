@@ -53,13 +53,18 @@
                                 {{ message.message }}
                             </div>
                         </div>
-                        <div class="col-container-12 bottom-right">
-                          
-                             <input type="text" v-model="userInput" @keypress.enter="sendMessage" placeholder="Scrivi un messaggio...">
-                             
-                             <button @click="sendMessage">Invia</button>
-                        
+
+                        <div class="endbar">
+                            <div class="col-container-12 bottom-right">
+                                <div class="imput-center">
+                                    <input type="text" v-model="userInput" @keypress.enter="sendMessage" placeholder="Scrivi un messaggio">
+                                </div>
+                                
+                           </div>
                         </div>
+
+
+                    </div>   
                 </div>
             </div>
         </div>
