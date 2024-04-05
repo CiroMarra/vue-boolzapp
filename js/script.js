@@ -112,14 +112,12 @@ createApp({
     sendMessage() {
       if (this.userInput.trim() === '') return;
       this.contacts[this.selectedContactIndex].messages.push({
-          date: new Date().toLocaleString(),
           message: this.userInput.trim(),
           status: 'sent'
       });
       
       setTimeout(() => {
           this.contacts[this.selectedContactIndex].messages.push({
-              date: new Date().toLocaleString(),
               message: 'Ok',
               status: 'received'
           });
