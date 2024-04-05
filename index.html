@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="app">
-       <div class="mega-container">
+        <div class="mega-container">
             <div class="container-app">
                 <div class="container-left col-4">
                     <div class="col-container-12">
@@ -18,33 +18,29 @@
                             <img src="img/avatar_io.jpg" alt="" class="img">
                             <span class="ms-span">Sofia</span>
                         </div>
-                        
                     </div>
                     <div class="notification">
                         <div class="rounded-box">
                             <i class="fa-solid fa-bell-slash img-postion"></i>          
                         </div>
                         <div class="text">
-                        <span class="ms-span">Ricevi notifiche di nuovi messaggi</span>  
-                        <div class="ms-notifiche">Attiva notifiche messaggi</div>
+                            <span class="ms-span">Ricevi notifiche di nuovi messaggi</span>  
+                            <div class="ms-notifiche">Attiva notifiche messaggi</div>
                         </div>
-                        
                     </div>
+                    <input type="text" v-model="searchText" @input="filterContacts" placeholder="Cerca o inizia una nuova chat">
                     <div class="left-bar">
                         <div class="contact-list">
-                            <div class="single-contact" v-for="(contact, index) in contacts" :key="index" @click="selectContact(index)">
-                                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name" class="img-select">  
+                            <div class="single-contact" v-for="(contact, index) in filteredContacts.length > 0 ? filteredContacts: contacts" :key="index" @click="selectContact(index)">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name" class="img-select">  
                                 <span class="ms-span">{{ contact.name }}</span>
                             </div>
                         </div>  
-                    
-    
                     </div>
-                    
                 </div>
                 <div class="container-right col-8">
                     <div class="col-container-12">
-                        <div class="mySelf" v-if="selectedContactIndex0 => 0"> 
+                        <div class="mySelf" v-if="selectedContactIndex >= 0">
                             <img :src="'img/avatar_' + (selectedContactIndex + 1) + '.jpg'" alt="" class="img-select">  
                             <span class="ms-span">{{ contacts[selectedContactIndex].name }}</span>
                         </div>
@@ -53,30 +49,18 @@
                                 {{ message.message }}
                             </div>
                         </div>
-
                         <div class="endbar">
                             <div class="col-container-12 bottom-right">
                                 <div class="imput-center">
                                     <input type="text" v-model="userInput" @keypress.enter="sendMessage" placeholder="Scrivi un messaggio">
                                 </div>
-                                
-                           </div>
+                            </div>
                         </div>
-
-
                     </div>   
                 </div>
             </div>
         </div>
-
-
-       </div> 
-     
-        
     </div>
-
-
-   
 <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
 <script src="./js/script.js"></script>
 </body>
