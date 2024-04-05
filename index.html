@@ -44,7 +44,7 @@
                 </div>
                 <div class="container-right col-8">
                     <div class="col-container-12">
-                        <div class="mySelf" v-if="selectedContactIndex !== null"> 
+                        <div class="mySelf" v-if="selectedContactIndex => 0"> 
                             <img :src="'img/avatar_' + (selectedContactIndex + 1) + '.jpg'" alt="" class="img-select">  
                             <span class="ms-span">{{ contacts[selectedContactIndex].name }}</span>
                         </div>
