@@ -17,8 +17,8 @@
 
 
 .container-app {
-    width: 85%;
-    height: 96vh;
+    width: 100%;
+    height: 100vh;
     margin: auto;
     position: relative;
     display: flex;
@@ -27,42 +27,12 @@
 
 }
 /*COLONNE */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.col-4 {
-    width: calc((100% / 12) * 4);
-    background-color: #eaeaea
-}
-.col-8 {
-    width: calc((100% / 12) * 8);
-    background-color: aqua;
-}
-
-
-.col-6 {
-    width: calc((100% / 12) * 6);
-    background-color: aqua;
-}
-
-.col-12 {
-    width: calc((100% / 12) * 12);
+.header-color {
     background-color: #eaeaea;
-
-
+    border-left: 1px solid lightgrey;
+    height: 90vh;
 }
-
-
-.col-container-12 {
-    width: calc((100% / 12) * 12);
-    background-color: #eaeaea;
-    height: 10%;
-
-}
-
-
 
 .container-left {
    display: flex;
@@ -76,9 +46,13 @@
    
 }
 
+.ms-size {
+    font-size: 25px;
+}
+
 .chat {
     background-image: url(../img/mine.jpg);
-    height: 77vh;
+    height: 72vh;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -137,7 +111,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     color: #8edafc;
 }
 
@@ -156,11 +130,16 @@
 
 .left-bar {
     flex-grow: 1;
-    overflow-y: auto
+    overflow: auto
 }
 
 .endbar {
-    display: flex;
+    height: 67px;
+
+}
+
+.myContact {
+    height: 90px;
 }
 
 /* right */
