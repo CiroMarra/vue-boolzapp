@@ -72,9 +72,6 @@
                         
                         
                     </div>
-                    
-
-
                         <!-- Header della chat e del contatto selezionato -->
                     <div class="col-8 p-0 header-color d-flex">
                         <div class="col-12 ">
@@ -82,18 +79,21 @@
                                 <div class="d-flex justify-content-center m-0">
                                     <div class="p-2 flex-grow-1 d-flex align-items-center">
                                          <!-- Informazioni sul contatto selezionato -->
-                                         <div class="mySelf d-flex align-items-center position-relative">
-                                            <div class="mySelf" v-if="selectedContactIndex >= 0">
-                                                <img :src="'img/avatar_' + (selectedContactIndex + 1) + '.jpg'" alt="" class="img-select">  
-                                                <div class="d-flex flex-column">
-                                                    <span class="ms-span">{{ contacts[selectedContactIndex].name }}</span>
+                                           <div class="mySelf d-flex align-items-center">
+                                                <div class="mySelf" v-if="selectedContactIndex >= 0">
+                                                    <div class="mySelf" v-if="selectedContactIndex >= 0">
+                                                        <img :src="'img/avatar_' + (selectedContactIndex + 1) + '.jpg'" alt="" class="img-select">  
+                                                    </div>
+                                                    <div class="contact-info d-flex flex-column">
+                                                        <!-- Nome del contatto -->
+                                                        <span class="ms-span">{{ contacts[selectedContactIndex].name  }}</span>
+                                                        <!-- Placeholder per l'ultimo messaggio inviato -->
+                                                        <span class="ms-last-message pt-4 ps-2">Ultimo accesso oggi alle 12:00</span>
+                                                    </div>
                                                 </div>
-                                                <span class="ms-last-see mt-5 me-2">Ultimo accesso oggi alle 12:00</span>
                                             </div>
-                                        </div>
-                                        
+                                           
                                     </div>
-                                   
                                      <!-- Icone -->
                                     <div class="p-2 d-flex justify-content-center align-items-center gap-3">
                                         <i class="fa-solid fa-magnifying-glass ms-size" style="color: #9c9c9c;"></i>
