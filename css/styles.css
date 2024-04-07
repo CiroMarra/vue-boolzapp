@@ -141,6 +141,9 @@
 .myContact {
     height: 90px;
 }
+.contact-list {
+    position: relative;
+}
 
 /* right */
 .bottom-right {
@@ -161,6 +164,7 @@
     border-radius: 10px;
     margin-right: 20px;
     margin-top: 10px;
+    height: 60px;
 
 }
 
@@ -172,4 +176,23 @@
     border-radius: 10px;
     margin-left: 20px;
     margin-top: 10px;
+    height: 60px;
+}
+
+
+.ms-size-span {
+    font-size: 11px;
+}
+
+.ms-last-message {
+    position: absolute;
+    font-size: 13px;
+    color: grey;
+}
+
+.ms-last-see {
+    margin-left: -60px;
+    font-size: 14px;
+    color: grey;
+    
 }

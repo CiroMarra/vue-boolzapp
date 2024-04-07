@@ -17,6 +17,7 @@
 
 const { createApp } = Vue;
 
+
 createApp({
     data() {
         return {
@@ -100,47 +101,61 @@ createApp({
                     ],
                 },
             ],
-            filteredContacts: [],
-            selectedContactIndex: 0,
-            userInput: '',
-            searchText: ''
+            filteredContacts: [], //  array per i contatti filtratti tramite input di ricerca
+            selectedContactIndex: 0, // indice del contatto selezionato, parte da 0 in modo che venga mostrato sempre un contatto iniziale
+            userInput: '', // input dell'utente per l'invio dei messaggi
+            searchText: '', // testo di ricerca per filtrare i contatti 
+            data: {
+                timestamp: "" // serve per richiamare la funzione di TimeStamp per permettere di visualizzare l'orario corrente.
+             },
         };
     },
 
 
+  
     methods: {
+        // funzione per selezionare un contatto tramite indice
         selectContact(index) {
             this.selectedContactIndex = index;
             console.log(this.selectedContactIndex);
         },
 
+        getTimeStamp() {
+            const timestamp = luxon.DateTime.local().toLocaleString(luxon.DateTime.DATETIME_SHORT_WITH_SECONDS)
+            return luxon.DateTime.local().toFormat('HH:mm'); // mostra nei messaggi l'orario corrente (l'orario è preso direttamente dal proprio computer quindi si aggiorna in tempo reale ad ogni invio)
+        },
+        // funzione che filtra i contatti in base alla ricerca dell'utente 
         filterContacts() {
-          const search = this.searchText.toLowerCase();
-          if (search === '') {
-              this.filteredContacts = [...this.contacts]; 
-          } else {
-              this.filteredContacts = this.contacts.filter(contact => {
-                  const name = contact.name.toLowerCase();
-                  return name.includes(search);
-              });
-          }
-      },
+            const search = this.searchText.toLowerCase(); // converte il testo di ricerca dell'utente in minuscolo in modo che i contatti risultino essere scritti tutti nella stessa maniera 
+            if (search === '') {
+                this.filteredContacts = this.contacts; // se non c'è nulla nel input di ricerca mostra tutti i contatti della lista
+            } else {
+                this.filteredContacts = this.contacts.filter(contact => {
+                    const name = contact.name.toLowerCase();
+                    return name.includes(search); // filtra i contatti in base a cosa l'utente ha scritto nel input di ricerca.
+                });
+            }
+        },
+        // funzione che va ad inviare un messaggio 
         sendMessage() {
-            if (this.userInput.trim() === '') return;
-            this.contacts[this.selectedContactIndex].messages.push({
+            if (this.userInput.trim() === '') return; // controlla che il messaggio inviato dall'utente non sia un messaggio vuoto, in caso fosse vuoto non lo invierà 
+            this.contacts[this.selectedContactIndex].messages.push({ // invia a l'array il messaggio dell'utente per mostrarlo all'interno della chat
                 message: this.userInput.trim(),
                 status: 'sent'
+     
             });
-
-            setTimeout(() => {
+    
+            setTimeout(() => { // va a simulare una risposta a l'utente dopo 1 secondo la risposta simulata è "ok"
                 this.contacts[this.selectedContactIndex].messages.push({
                     message: 'Ok',
                     status: 'received'
+                  
                 });
             }, 1000);
-            this.userInput = '';
+            this.userInput = ''; // pulisce il campo imput dopo che l'utente ha mandato il messaggio
         },
-
-      }
+    
+  
+    },
 }).mount('#app');
 
